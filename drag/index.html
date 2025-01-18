@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drag & Drop JavaScript</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div id="left">
+            <div class="list" draggable="true">
+                 List Item 1
+            </div>
+            <div class="list" draggable="true">
+                 List Item 2
+            </div>
+            <div class="list" draggable="true">
+               List Item 3
+            </div>
+            <div class="list" draggable="true">
+               List Item 4
+            </div>
+        </div>
+        <div id="right"></div>
+    </div>
+    <script>
+        let lists = document.getElementsByClassName("list"); // Fixed typo: getElementByClassName -> getElementsByClassName
+        let rightBox = document.getElementById('right');
+        let leftBox = document.getElementById('left');
+
+        for (let list of lists) { // Ensure proper variable declaration
+            list.addEventListener("dragstart", function(e) {
+                let selected = e.target; // Save the dragged element
+
+                rightBox.addEventListener("dragover", function(e) {
+                    e.preventDefault(); // Allow dropping
+                });
+
+                rightBox.addEventListener("drop", function(e) {
+                    rightBox.appendChild(selected); // Append the dragged item to the right box
+                    selected = null; // Reset the selected variable
+                });
+
+                leftBox.addEventListener("dragover", function(e) {
+                    e.preventDefault(); // Allow dropping
+                });
+
+                leftBox.addEventListener("drop", function(e) {
+                    leftBox.appendChild(selected); // Append the dragged item back to the left box
+                    selected = null; // Reset the selected variable
+                });
+            });
+        }
+    </script>
+</body>
+</html>

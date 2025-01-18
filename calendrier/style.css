@@ -1,0 +1,66 @@
+/* Corps de la page */
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(135deg, #1e3c72, #2a5298);
+}
+
+/* Conteneur du calendrier */
+.calendar {
+    display: flex;
+    width: 300px;
+    height: 200px;
+    background: #ffffff;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Partie gauche */
+.left {
+    flex: 1;
+    background: #f9f9f9;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.date {
+    font-size: 3rem;
+    font-weight: bold;
+    color: #333;
+}
+
+.day {
+    font-size: 1.2rem;
+    color: #555;
+}
+
+/* Partie droite */
+.right {
+    flex: 1;
+    background: #ff5722;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    color: #ffffff;
+}
+
+.month {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.year {
+    font-size: 1.2rem;
+    margin-top: 10px;
+}

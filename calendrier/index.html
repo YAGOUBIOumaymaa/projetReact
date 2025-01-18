@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Mini Calendar</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="calendar">
+        <div class="left">
+            <div class="date" id="day">01</div>
+            <div class="day" id="weekday">Monday</div>
+        </div>
+        <div class="right">
+            <div class="month" id="month">January</div>
+            <div class="year" id="year">2023</div>
+        </div>
+    </div>
+
+    <script>
+        // Fonction pour mettre à jour le calendrier
+        function updateCalendar() {
+            const now = new Date();
+
+            // Obtenir les parties de la date
+            const day = now.getDate(); // Jour du mois (1-31)
+            const weekday = now.toLocaleString('default', { weekday: 'long' }); // Jour de la semaine
+            const month = now.toLocaleString('default', { month: 'long' }); // Mois complet
+            const year = now.getFullYear(); // Année complète
+
+            // Mise à jour des éléments HTML
+            document.getElementById('day').textContent = day;
+            document.getElementById('weekday').textContent = weekday;
+            document.getElementById('month').textContent = month;
+            document.getElementById('year').textContent = year;
+        }
+
+        // Appeler la fonction pour initialiser la date
+        updateCalendar();
+
+        // Si vous voulez le rafraîchir automatiquement chaque minute ou toutes les heures,
+        // vous pouvez décommenter la ligne suivante :
+        // setInterval(updateCalendar, 60000);
+    </script>
+</body>
+</html>
+
